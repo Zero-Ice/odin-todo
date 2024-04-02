@@ -60,4 +60,19 @@ function getTodos(projectName) {
   return projectTodos;
 }
 
-export { ToDoItem, getTodos, saveToDos, addNewToDoItem };
+function removeTodo(todoItem) {
+  const todos = getToDoItemsFromStorage();
+  const index = todos.findIndex(
+    (tdi) =>
+      tdi.project == todoItem.project &&
+      tdi.description == todoItem.description &&
+      tdi.title == todoItem.title
+  );
+
+  if (index == -1) return;
+
+  todos.splice(index, 1);
+  saveToDos(todos);
+}
+
+export { ToDoItem, getTodos, saveToDos, addNewToDoItem, removeTodo };

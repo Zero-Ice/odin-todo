@@ -62,3 +62,5 @@ function processAddTodoForm(e) {
 
   return false;
 }
+
+export { refresh };
