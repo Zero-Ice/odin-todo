@@ -16,7 +16,9 @@ function getProjectsFromLocalStorage() {
     console.log("Found projects in storage");
     return JSON.parse(projects);
   } else {
-    return null;
+    const newProjs = [];
+    saveProjects(newProjs);
+    return newProjs;
   }
 }
 

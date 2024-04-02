@@ -2,47 +2,56 @@ import { addProject, getProjectsFromLocalStorage } from "./project";
 
 import { getProjectListItemView } from "./project-list-item-view";
 
-const container = document.getElementById("container");
-let isPageActive = false;
+import { refreshTodoView } from "./todo-view";
 
-function setProjectListPageActive(isActive) {
-  isPageActive = isActive;
-}
+import { getTodos } from "./todo";
+
+let currentSelectedProject = "";
+
+const container = document.getElementById("projectlisting");
+const addProjectBtn = document.getElementById("addprojectbtn");
+addProjectBtn.addEventListener("click", () => {
+  addProjectPopup();
+});
 
 function projectListView(projects) {
   console.log(projects);
 
-  const div = document.createElement("div");
-  div.classList = "container-item";
-
-  const addProjBtn = document.createElement("button");
-  addProjBtn.innerText = "Add Project";
-  addProjBtn.addEventListener("click", addProjectPopup);
-  div.appendChild(addProjBtn);
-
-  const deleteAllProjBtn = document.createElement("button");
-  deleteAllProjBtn.innerText = "Delete All Projects";
-  deleteAllProjBtn.addEventListener("click", deleteAllProjects);
-  div.appendChild(deleteAllProjBtn);
+  container.innerHTML = "";
 
   if (!!projects) {
     for (const p of projects) {
-      div.appendChild(getProjectListItemView(p));
+      const projectBtn = getProjectListItemView(p);
+      projectBtn.addEventListener("click", () => {
+        currentSelectedProject = p.name;
+        console.log(`selected project ${p.name}`);
+        const todos = getTodos(p.name);
+        refreshTodoView(todos);
+      });
+      container.appendChild(projectBtn);
     }
   }
-
-  return div;
 }
 
 function addProjectPopup() {
   let projectName = prompt("Please enter your project name");
   if (!!projectName) {
-    let newProject = CreateProject(projectName);
-    AddProject(newProject);
-    updateProjectListPage();
+    addProject(projectName);
+    refreshProjectListing();
   } else {
     console.log("Invalid project name");
   }
+}
+
+function refreshProjectListing() {
+  const projects = getProjectsFromLocalStorage();
+  if (!currentSelectedProject) {
+    if (projects.length > 0) {
+      currentSelectedProject = projects[0];
+      console.log("setting default selected project");
+    }
+  }
+  projectListView(projects);
 }
 
 function deleteAllProjects() {
@@ -50,15 +59,4 @@ function deleteAllProjects() {
   updateProjectListPage();
 }
 
-function updateProjectListPage() {
-  if (!isPageActive) return;
-
-  clearContainer();
-  container.appendChild(projectListView(getProjectsFromLocalStorage()));
-}
-
-function clearContainer() {
-  container.innerHTML = "";
-}
-
-export { projectListView, updateProjectListPage, setProjectListPageActive };
+export { projectListView, refreshProjectListing, currentSelectedProject };

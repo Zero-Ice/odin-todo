@@ -6,6 +6,15 @@ function ToDoItem() {
   this.priority = 0;
   this.done = false;
   this.notes = "";
+
+  this.setTodo = function (project, title, desc, duedate, priority, notes) {
+    this.project = project;
+    this.title = title;
+    this.desc = desc;
+    this.dueDate = duedate;
+    this.priority = priority;
+    this.notes = notes;
+  };
 }
 
 function getToDoItemsFromStorage() {
@@ -44,4 +53,11 @@ function addNewToDoItem(
   saveToDos(todos);
 }
 
-export { ToDoItem, getToDoItemsFromStorage, saveToDos, addNewToDoItem };
+function getTodos(projectName) {
+  const todos = getToDoItemsFromStorage();
+  const projectTodos = todos.filter((todos) => todos.project === projectName);
+
+  return projectTodos;
+}
+
+export { ToDoItem, getTodos, saveToDos, addNewToDoItem };

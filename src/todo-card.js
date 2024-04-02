@@ -1,11 +1,13 @@
-function getProjectDetailItemView(tdi) {
+function getTodoCard(todoItem) {
   const div = document.createElement("div");
+  div.className = "todo-card";
 
   const title = document.createElement("p");
-  title.innerText = tdi.title;
+  title.innerText = todoItem.title;
+
   div.appendChild(title);
 
   return div;
 }
 
-export { getProjectDetailItemView };
+export default getTodoCard;

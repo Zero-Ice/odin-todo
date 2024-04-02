@@ -3,12 +3,73 @@
   <head>
     <meta charset="utf-8" />
     <title>Getting Started</title>
+    <link rel="stylesheet" href="reset.css" media="screen" />
+    <link rel="stylesheet" href="style.css" media="screen" />
   </head>
   <body>
     <script src="./src/index.js"></script>
-    <nav>
-      <button id="projectnav">My Projects</button>
-    </nav>
-    <div id="container"></div>
+    <div id="main">
+      <div id="title">
+        <img src="" alt="" />
+        <div></div>
+        <button id="add-todo-btn">+</button>
+      </div>
+
+      <div id="content">
+        <div id="nav">
+          <div class="project-title text">My Projects</div>
+          <div id="projectlisting"></div>
+          <button id="addprojectbtn" class="projectlisting-button text">
+            +
+          </button>
+        </div>
+        <div id="container"></div>
+      </div>
+    </div>
   </body>
+
+  <dialog id="dialog">
+    <div id="dialog-content">
+      <button id="add-todo-dialog-close-button">X</button>
+      <form id="add-todo-form">
+        <label for="add-todo-title">Title</label>
+        <br />
+        <input type="text" name="add-todo-title" id="add-todo-title" />
+        <br />
+        <label for="add-todo-projectName">Project</label>
+        <br />
+        <input
+          type="text"
+          name="add-todo-projectName"
+          id="add-todo-projectName"
+        />
+        <br />
+        <label for="add-todo-description">Description</label>
+        <br />
+        <input
+          type="text"
+          name="add-todo-description"
+          id="add-todo-description"
+        />
+        <br />
+        <label for="add-todo-duedate">Due </label>
+        <br />
+        <input type="date" name="add-todo-duedate" id="add-todo-duedate" />
+        <br />
+        <label for="add-todo-priority">Priority</label>
+        <br />
+        <select name="add-todo-priority" id="add-todo-priority">
+          <option value="Low">Low</option>
+          <option value="Med">Med</option>
+          <option value="High">High</option>
+        </select>
+        <br />
+        <label for="add-todo-notes">Notes</label>
+        <br />
+        <input type="text" name="add-todo-notes" id="add-todo-notes" />
+        <br />
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </dialog>
 </html>
