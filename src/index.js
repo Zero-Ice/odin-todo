@@ -33,13 +33,21 @@ const addTodoDialogCloseBtn = document.getElementById(
   "add-todo-dialog-close-button"
 );
 addTodoDialogCloseBtn.addEventListener("click", () => {
-  addTodoDialog.close();
+  hideAddTodoDialog;
 });
 
 const addTodoBtn = document.getElementById("add-todo-btn");
 addTodoBtn.addEventListener("click", () => {
-  addTodoDialog.show();
+  showAddTodoDialog();
 });
+
+function showAddTodoDialog() {
+  addTodoDialog.show();
+}
+
+function hideAddTodoDialog() {
+  addTodoDialog.close();
+}
 
 function processAddTodoForm(e) {
   if (e.preventDefault) e.preventDefault();
@@ -59,6 +67,8 @@ function processAddTodoForm(e) {
   const selectedProject = currentSelectedProject;
   const todos = getTodos(selectedProject.name);
   refreshTodoView(todos);
+
+  hideAddTodoDialog();
 
   return false;
 }
