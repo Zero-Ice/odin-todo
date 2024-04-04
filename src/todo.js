@@ -76,4 +76,27 @@ function removeTodo(todoItem) {
   saveToDos(todos);
 }
 
-export { ToDoItem, getTodos, saveToDos, addNewToDoItem, removeTodo };
+function toggleTodoCompleted(todoItem) {
+  const todos = getToDoItemsFromStorage();
+  const index = todos.findIndex(
+    (tdi) =>
+      tdi.project == todoItem.project &&
+      tdi.description == todoItem.description &&
+      tdi.title == todoItem.title
+  );
+
+  if (index == -1) return;
+
+  todos[index].done = !todos[index].done;
+
+  saveToDos(todos);
+}
+
+export {
+  ToDoItem,
+  getTodos,
+  saveToDos,
+  addNewToDoItem,
+  removeTodo,
+  toggleTodoCompleted,
+};
