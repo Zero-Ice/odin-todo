@@ -51,6 +51,7 @@ function addNewToDoItem(
   const todos = getToDoItemsFromStorage();
   todos.push(tdi);
   saveToDos(todos);
+  return todos;
 }
 
 function getTodos(projectName) {

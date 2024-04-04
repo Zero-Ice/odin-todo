@@ -1,7 +1,7 @@
 import "./style.css";
 import {
   refreshProjectListing,
-  currentSelectedProject,
+  currentSelectedProject as currentSelectedProjectName,
 } from "./project-list-view";
 import { refreshTodoView } from "./todo-view";
 import { getTodos, addNewToDoItem, ToDoItem } from "./todo";
@@ -43,7 +43,7 @@ refresh();
 
 function refresh() {
   refreshProjectListing();
-  const selectedProject = currentSelectedProject;
+  const selectedProject = currentSelectedProjectName;
   const todos = getTodos(selectedProject.name);
   refreshTodoView(todos);
 }
@@ -82,10 +82,17 @@ function processAddTodoForm(e) {
   const priority = formData.get("add-todo-priority");
   const notes = formData.get("add-todo-notes");
 
-  addNewToDoItem(projectName, title, desc, date, priority, notes);
+  const newTodos = addNewToDoItem(
+    projectName,
+    title,
+    desc,
+    date,
+    priority,
+    notes
+  );
 
-  const selectedProject = currentSelectedProject;
-  const todos = getTodos(selectedProject.name);
+  const selectedProject = currentSelectedProjectName;
+  const todos = getTodos(selectedProject);
   refreshTodoView(todos);
 
   hideAddTodoDialog();
