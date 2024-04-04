@@ -44,7 +44,7 @@ refresh();
 function refresh() {
   refreshProjectListing();
   const selectedProject = currentSelectedProjectName;
-  const todos = getTodos(selectedProject.name);
+  const todos = getTodos(selectedProject);
   refreshTodoView(todos);
 }
 

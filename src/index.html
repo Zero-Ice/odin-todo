@@ -34,7 +34,13 @@
       <form id="add-todo-form">
         <label for="add-todo-title">Title</label>
         <br />
-        <input type="text" name="add-todo-title" id="add-todo-title" />
+        <input
+          type="text"
+          name="add-todo-title"
+          id="add-todo-title"
+          autofocus
+          onfocus="this.select()"
+        />
         <br />
         <label for="add-todo-projectName">Project</label>
         <br />
@@ -81,7 +87,13 @@
       <form id="add-project-form">
         <label for="add-project-name">Project Name</label>
         <br />
-        <input type="text" name="add-project-name" id="add-project-name" />
+        <input
+          type="text"
+          name="add-project-name"
+          id="add-project-name"
+          autofocus
+          onfocus="this.select()"
+        />
         <br />
         <button type="submit">Add</button>
       </form>
