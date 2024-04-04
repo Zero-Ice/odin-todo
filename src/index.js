@@ -30,7 +30,7 @@ if (addProjectForm.attachEvent) {
 const addProjectDialog = document.getElementById("add-project-dialog");
 const addProjBtn = document.getElementById("addprojectbtn");
 addProjBtn.addEventListener("click", () => {
-  addProjectDialog.show();
+  addProjectDialog.showModal();
 });
 const addProjCloseBtn = document.getElementById(
   "add-project-dialog-close-button"
@@ -62,7 +62,7 @@ addTodoBtn.addEventListener("click", () => {
 });
 
 function showAddTodoDialog() {
-  addTodoDialog.show();
+  addTodoDialog.showModal();
 }
 
 function hideAddTodoDialog() {
