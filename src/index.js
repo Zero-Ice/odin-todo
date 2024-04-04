@@ -33,7 +33,7 @@ const addTodoDialogCloseBtn = document.getElementById(
   "add-todo-dialog-close-button"
 );
 addTodoDialogCloseBtn.addEventListener("click", () => {
-  hideAddTodoDialog;
+  hideAddTodoDialog();
 });
 
 const addTodoBtn = document.getElementById("add-todo-btn");
