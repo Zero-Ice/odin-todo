@@ -33,7 +33,7 @@ function refreshProjectListing() {
   const projects = getProjectsFromLocalStorage();
   if (!currentSelectedProject) {
     if (projects.length > 0) {
-      currentSelectedProject = projects[0];
+      currentSelectedProject = projects[0].name;
       console.log("setting default selected project");
     }
   }
