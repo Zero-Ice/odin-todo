@@ -5,6 +5,7 @@ import {
 } from "./project-list-view";
 import { refreshTodoView } from "./todo-view";
 import { getTodos, addNewToDoItem, ToDoItem } from "./todo";
+import { addProject, getProject } from "./project";
 
 if (process.env.NODE_ENV !== "production") {
   console.log("Looks like we are in development mode!");
@@ -12,12 +13,31 @@ if (process.env.NODE_ENV !== "production") {
 
 const container = document.getElementById("container");
 
-var form = document.getElementById("add-todo-form");
-if (form.attachEvent) {
-  form.attachEvent("submit", processAddTodoForm);
+const addTodoForm = document.getElementById("add-todo-form");
+if (addTodoForm.attachEvent) {
+  addTodoForm.attachEvent("submit", processAddTodoForm);
 } else {
-  form.addEventListener("submit", processAddTodoForm);
+  addTodoForm.addEventListener("submit", processAddTodoForm);
 }
+
+const addProjectForm = document.getElementById("add-project-form");
+if (addProjectForm.attachEvent) {
+  addProjectForm.attachEvent("submit", processAddProjectForm);
+} else {
+  addProjectForm.addEventListener("submit", processAddProjectForm);
+}
+
+const addProjectDialog = document.getElementById("add-project-dialog");
+const addProjBtn = document.getElementById("addprojectbtn");
+addProjBtn.addEventListener("click", () => {
+  addProjectDialog.show();
+});
+const addProjCloseBtn = document.getElementById(
+  "add-project-dialog-close-button"
+);
+addProjCloseBtn.addEventListener("click", () => {
+  addProjectDialog.close();
+});
 
 refresh();
 
@@ -71,6 +91,26 @@ function processAddTodoForm(e) {
   hideAddTodoDialog();
 
   return false;
+}
+
+function processAddProjectForm(e) {
+  if (e.preventDefault) e.preventDefault();
+
+  const formData = new FormData(document.querySelector("#add-project-form"));
+
+  const projectName = formData.get("add-project-name");
+
+  const existingProjWithName = getProject(projectName);
+
+  if (existingProjWithName) {
+    console.log(`Project with name ${projectName} exists`);
+    return;
+  }
+
+  addProject(projectName);
+
+  addProjectDialog.close();
+  refreshProjectListing();
 }
 
 export { refresh };

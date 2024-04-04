@@ -28,9 +28,9 @@
     </div>
   </body>
 
-  <dialog id="dialog">
-    <div id="dialog-content">
-      <button id="add-todo-dialog-close-button">X</button>
+  <dialog id="dialog" class="dialog-popup">
+    <div class="dialog-content">
+      <button id="add-todo-dialog-close-button" class="close-button">X</button>
       <form id="add-todo-form">
         <label for="add-todo-title">Title</label>
         <br />
@@ -67,6 +67,21 @@
         <label for="add-todo-notes">Notes</label>
         <br />
         <input type="text" name="add-todo-notes" id="add-todo-notes" />
+        <br />
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog id="add-project-dialog" class="dialog-popup">
+    <div class="dialog-content">
+      <button id="add-project-dialog-close-button" class="close-button">
+        X
+      </button>
+      <form id="add-project-form">
+        <label for="add-project-name">Project Name</label>
+        <br />
+        <input type="text" name="add-project-name" id="add-project-name" />
         <br />
         <button type="submit">Add</button>
       </form>

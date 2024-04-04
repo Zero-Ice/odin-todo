@@ -9,10 +9,6 @@ import { getTodos } from "./todo";
 let currentSelectedProject = "";
 
 const container = document.getElementById("projectlisting");
-const addProjectBtn = document.getElementById("addprojectbtn");
-addProjectBtn.addEventListener("click", () => {
-  addProjectPopup();
-});
 
 function projectListView(projects) {
   console.log(projects);
@@ -30,16 +26,6 @@ function projectListView(projects) {
       });
       container.appendChild(projectBtn);
     }
-  }
-}
-
-function addProjectPopup() {
-  let projectName = prompt("Please enter your project name");
-  if (!!projectName) {
-    addProject(projectName);
-    refreshProjectListing();
-  } else {
-    console.log("Invalid project name");
   }
 }
 
