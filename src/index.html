@@ -8,15 +8,16 @@
   </head>
   <body>
     <script src="./src/index.js"></script>
-    <div id="main">
-      <div id="title">
-        <img src="" alt="" />
-        <div></div>
-        <button id="add-todo-btn">+</button>
+    <div class="bg-image"></div>
+    <div class="main">
+      <div class="title">
+        <div class="header-image" style="text-wrap: wrap"></div>
+        <div style="flex-grow: 2"></div>
+        <button id="add-todo-btn"></button>
       </div>
 
       <div id="content">
-        <div id="nav">
+        <div class="sidebar">
           <div class="project-title text">My Projects</div>
           <div id="projectlisting"></div>
           <button id="addprojectbtn" class="projectlisting-button text">
@@ -25,6 +26,14 @@
         </div>
         <div id="container"></div>
       </div>
+      <footer>
+        <a
+          hidden
+          href="https://www.flaticon.com/free-icons/head"
+          title="head icons"
+          >Head icons created by Ains - Flaticon</a
+        >
+      </footer>
     </div>
   </body>
 
