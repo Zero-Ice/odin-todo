@@ -1,12 +1,1 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Development</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script defer src="runtime.bundle.js"></script>
-    <script defer src="index.bundle.js"></script>
-    <script defer src="print.bundle.js"></script>
-  </head>
-  <body></body>
-</html>
+<!doctype html><html><head><meta charset="utf-8"/><title>Getting Started</title><link rel="stylesheet" href="reset.css" media="screen"/><link rel="stylesheet" href="style.css" media="screen"/><script defer="defer" src="app.bundle.js"></script></head><body><script src="./src/index.js"></script><div class="bg-image"></div><div class="main"><div class="title"><div class="header-image" style="text-wrap: wrap"></div><div style="flex-grow: 2"></div><button id="add-todo-btn"></button></div><div id="content"><div class="sidebar"><div class="project-title text">My Projects</div><div id="projectlisting"></div><button id="addprojectbtn" class="projectlisting-button text">+</button></div><div id="container"></div></div><footer><a hidden href="https://www.flaticon.com/free-icons/head" title="head icons">Head icons created by Ains - Flaticon</a></footer></div></body><dialog id="dialog" class="dialog-popup"><div class="dialog-content"><button id="add-todo-dialog-close-button" class="close-button">X</button><form id="add-todo-form"><label for="add-todo-title">Title</label><br/><input name="add-todo-title" id="add-todo-title" autofocus onfocus="this.select()"/><br/><label for="add-todo-projectName">Project</label><br/><input name="add-todo-projectName" id="add-todo-projectName"/><br/><label for="add-todo-description">Description</label><br/><input name="add-todo-description" id="add-todo-description"/><br/><label for="add-todo-duedate">Due</label><br/><input type="date" name="add-todo-duedate" id="add-todo-duedate"/><br/><label for="add-todo-priority">Priority</label><br/><select name="add-todo-priority" id="add-todo-priority"><option value="low">Low</option><option value="med">Med</option><option value="high">High</option></select><br/><label for="add-todo-notes">Notes</label><br/><input name="add-todo-notes" id="add-todo-notes"/><br/><button type="submit">Add</button></form></div></dialog><dialog id="add-project-dialog" class="dialog-popup"><div class="dialog-content"><button id="add-project-dialog-close-button" class="close-button">X</button><form id="add-project-form"><label for="add-project-name">Project Name</label><br/><input name="add-project-name" id="add-project-name" autofocus onfocus="this.select()"/><br/><button type="submit">Add</button></form></div></dialog></html>
